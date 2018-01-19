@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Busca tus comics</title>
+<meta name="codificacion"  content="text/html;" http-equiv="content-type" charset="utf-8">
+ <style type="text/css">
+.errorlist li{
+display: none;
+}
+
+h1 {
+text-align: center;
+margin: 25px 25px 25px 25px;
+font-size: 40px;
+}
+
+a {
+color: white;
+}
+
+p {
+color: white;
+}
+
+#form {
+text-align: center;
+color: white;
+}
+
+html {
+background-color: #384C6C;
+}
+
+section {
+background-color: #384C6C;
+height: 90%;
+text-align: center;
+}
+
+section h1 {
+color: white;
+}
+
+footer {
+background-color: #87ADE8;
+text-align: center;
+height: 15%;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+footer a {
+color: #384C6C;
+font-size: 20px;
+}
+
+img {
+width: 150px;
+height: 200px;
+}
+
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+<section>
+<h1>Comics</h1>
+{% for com in comic|dictsort:"comicPrice" %}
+<p>Comic: <a href="{{com.comicLink}}">{{com.comicTitle}}</a><p>
+<p>Precio: {{com.comicPrice}}<p>
+<img alt="Comic" src="{{com.comicImage}}">
+{% endfor %}
+</section>
+</body>
+</html>
